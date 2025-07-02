@@ -1,5 +1,3 @@
-import { log } from "node:console";
-
 function chainedGreetings(){
     return new Promise(resolve => {
         setTimeout(() => {
