@@ -1,21 +1,26 @@
 function waitAll(){
     return Promise.all([
-        setTimeout(() => {
-            console.log("first");
-            
-        }, 1000),
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("first");
+                
+            }, 1000);
+        }),
 
-        setTimeout(() => {
-            console.log("second");
-            
-        }, 2000),
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("second");
+                
+            }, 2000);
+        }),
 
-
-        setTimeout(() => {
-            console.log("third");
-            
-        }, 3000)
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("third");
+                
+            }, 3000);
+        }),
     ])
 }
 
-waitAll()
+waitAll().then(res => console.log(res));
